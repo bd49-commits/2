@@ -1,0 +1,16 @@
+{
+  "name": "حسابي (My Balance)",
+  "short_name": "رصيدي",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#27ae60",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/2534/2534204.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

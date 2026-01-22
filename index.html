@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>كشف حسابي</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body>
+    <div class="container" style="max-width: 600px;">
+        
+        <button id="installAppBtn" class="btn btn-primary full-width hidden mb-2">📲 تثبيت التطبيق</button>
+
+        <div id="cust-login" class="card glass center-text mt-2 gsap-target">
+            <h2>👤 كشف الحساب</h2>
+            <p>أدخل رمزك الخاص (3 أرقام)</p>
+            <input type="tel" id="custPassInput" placeholder="XXX" maxlength="10" class="gsap-input" style="text-align:center; letter-spacing: 5px; font-weight: bold; font-size: 1.5rem;">
+            
+            <div class="flex center-flex mb-2" style="justify-content: center;">
+                <input type="checkbox" id="rememberMe" style="width: auto; margin: 0 0 0 10px;">
+                <label for="rememberMe" style="cursor: pointer;">حفظ دخولي وتثبيت التطبيق</label>
+            </div>
+
+            <button class="btn btn-success full-width gsap-btn" onclick="checkCustomerCode()">دخول</button>
+            <p id="msg" style="color:salmon;"></p>
+        </div>
+
+        <div id="confirm-identity" class="card glass center-text mt-2 hidden">
+            <h3>مرحباً 👋</h3>
+            <p>هل اسمك هو:</p>
+            <h2 id="confirmName" style="color: var(--primary);">...</h2>
+            <div class="flex flex-between mt-2">
+                <button class="btn btn-danger full-width" onclick="location.reload()">لا، ليس أنا</button>
+                <button class="btn btn-success full-width" onclick="confirmAndLogin()">نعم، دخول</button>
+            </div>
+        </div>
+
+        <div id="cust-view" class="hidden">
+            <div id="paymentAlert" class="alert-box hidden">
+                <strong>⚠️ تنبيه:</strong> يرجى مراجعة المتجر لتسديد المستحقات.
+            </div>
+
+            <div class="card glass center-text gsap-target" style="border-top: 5px solid var(--primary);">
+                <h2 id="cName">...</h2>
+                <small>الرصيد الحالي</small>
+                <div class="balance-display" id="cBalance" style="color: var(--danger)">0.00</div>
+            </div>
+
+            <a id="financeWaLink" href="#" target="_blank" class="btn btn-success full-width mb-2 gsap-btn">
+                💬 تواصل مع القسم المالي (واتساب)
+            </a>
+
+            <div class="card glass gsap-target">
+                <h3>سجل الحركات</h3>
+                <div id="cTransList"></div>
+            </div>
+        </div>
+    </div>
+    
+    <script type="module" src="app.js"></script>
+    <script src="pwa.js"></script>
+</body>
+</html>
